@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  loginflow-ios
+//  authflow-ios
 //
 //  Created by Chris Paine on 6/1/19.
 //
@@ -12,9 +12,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private var applicationCoordinator: ApplicationCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        applicationCoordinator = ApplicationCoordinator(window: window!)
+        
+        applicationCoordinator?.start()
+        
         return true
     }
 
