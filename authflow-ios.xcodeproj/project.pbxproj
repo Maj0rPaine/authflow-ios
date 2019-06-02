@@ -23,9 +23,13 @@
 		3F30DE5422A3602800670B9C /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F30DE5322A3602800670B9C /* ProfileView.xib */; };
 		3F30DE5722A3FEC200670B9C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30DE5622A3FEC200670B9C /* ProfileCoordinator.swift */; };
 		3F30DE5922A4274A00670B9C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30DE5822A4274A00670B9C /* BaseViewController.swift */; };
+		3F30DE5D22A4616500670B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F30DE5C22A4616500670B9C /* GoogleService-Info.plist */; };
+		3F30DE5F22A4C2AC00670B9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30DE5E22A4C2AC00670B9C /* Extensions.swift */; };
+		A414B703634A433E6928FCDC /* Pods_authflow_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2376BACB945C4263063880D9 /* Pods_authflow_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2376BACB945C4263063880D9 /* Pods_authflow_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_authflow_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F30DE2422A2CE7100670B9C /* authflow-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "authflow-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F30DE2722A2CE7100670B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F30DE2922A2CE7100670B9C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,10 @@
 		3F30DE5322A3602800670B9C /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		3F30DE5622A3FEC200670B9C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		3F30DE5822A4274A00670B9C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3F30DE5C22A4616500670B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3F30DE5E22A4C2AC00670B9C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DD47D0079A2D9E12B4C80BF0 /* Pods-authflow-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-authflow-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-authflow-ios/Pods-authflow-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		EBA8AA79D7E9512FFD8834AE /* Pods-authflow-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-authflow-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-authflow-ios/Pods-authflow-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A414B703634A433E6928FCDC /* Pods_authflow_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,8 @@
 			children = (
 				3F30DE2622A2CE7100670B9C /* authflow-ios */,
 				3F30DE2522A2CE7100670B9C /* Products */,
+				A7243B0B2D251D4DBDF754FF /* Pods */,
+				B0C7283BD50BDB34C661A889 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +90,7 @@
 				3F30DE2E22A2CE7500670B9C /* Assets.xcassets */,
 				3F30DE3022A2CE7500670B9C /* LaunchScreen.storyboard */,
 				3F30DE3322A2CE7500670B9C /* Info.plist */,
+				3F30DE5C22A4616500670B9C /* GoogleService-Info.plist */,
 				3F30DE2722A2CE7100670B9C /* AppDelegate.swift */,
 				3F30DE5522A3F6B900670B9C /* Coordinators */,
 				3F30DE3C22A2D10600670B9C /* Views */,
@@ -90,6 +102,7 @@
 		3F30DE3B22A2D0E100670B9C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F30DE5E22A4C2AC00670B9C /* Extensions.swift */,
 				3F30DE5822A4274A00670B9C /* BaseViewController.swift */,
 				3F30DE2922A2CE7100670B9C /* SplashViewController.swift */,
 				3F30DE4B22A3557100670B9C /* LoginViewController.swift */,
@@ -121,6 +134,23 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		A7243B0B2D251D4DBDF754FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD47D0079A2D9E12B4C80BF0 /* Pods-authflow-ios.debug.xcconfig */,
+				EBA8AA79D7E9512FFD8834AE /* Pods-authflow-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B0C7283BD50BDB34C661A889 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2376BACB945C4263063880D9 /* Pods_authflow_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F30DE3622A2CE7500670B9C /* Build configuration list for PBXNativeTarget "authflow-ios" */;
 			buildPhases = (
+				A3EEAE2B9C0634679B71426C /* [CP] Check Pods Manifest.lock */,
 				3F30DE2022A2CE7100670B9C /* Sources */,
 				3F30DE2122A2CE7100670B9C /* Frameworks */,
 				3F30DE2222A2CE7100670B9C /* Resources */,
+				B099290A06697CBCA1DE0A7D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,10 +216,62 @@
 				3F30DE3E22A2D14800670B9C /* SplashView.xib in Resources */,
 				3F30DE4022A2D1B500670B9C /* LoginView.xib in Resources */,
 				3F30DE2F22A2CE7500670B9C /* Assets.xcassets in Resources */,
+				3F30DE5D22A4616500670B9C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3EEAE2B9C0634679B71426C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-authflow-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B099290A06697CBCA1DE0A7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-authflow-ios/Pods-authflow-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-authflow-ios/Pods-authflow-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F30DE2022A2CE7100670B9C /* Sources */ = {
@@ -203,6 +287,7 @@
 				3F30DE4C22A3557100670B9C /* LoginViewController.swift in Sources */,
 				3F30DE5222A3601500670B9C /* ProfileViewController.swift in Sources */,
 				3F30DE5722A3FEC200670B9C /* ProfileCoordinator.swift in Sources */,
+				3F30DE5F22A4C2AC00670B9C /* Extensions.swift in Sources */,
 				3F30DE4422A3513A00670B9C /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +364,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -333,12 +419,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		3F30DE3722A2CE7500670B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD47D0079A2D9E12B4C80BF0 /* Pods-authflow-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -357,6 +445,7 @@
 		};
 		3F30DE3822A2CE7500670B9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA8AA79D7E9512FFD8834AE /* Pods-authflow-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

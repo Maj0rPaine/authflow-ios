@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    private var user: User?
+    
+    convenience init(user: User) {
+        self.init()
+        self.user = user
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        emailLabel.text = user?.email
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 /// Coordinates access to profile
 class ProfileCoordinator: Coordinator {
@@ -15,9 +16,9 @@ class ProfileCoordinator: Coordinator {
     
     private let presenter: UINavigationController
     
-    init(presenter: UINavigationController) {
+    init(presenter: UINavigationController, user: User) {
         self.presenter = presenter
-        profileViewController = ProfileViewController()
+        profileViewController = ProfileViewController(user: user)
         profileViewController.title = "Profile"
         profileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(showLogout))
     }

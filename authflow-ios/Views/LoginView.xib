@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="authflow_ios" customModuleProvider="target">
             <connections>
+                <outlet property="emailField" destination="A43-6A-kj2" id="vhX-2a-edD"/>
+                <outlet property="passwordField" destination="MsW-At-A3M" id="BF0-IH-iWv"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZXh-zH-8V8"/>
             </connections>
         </placeholder>
@@ -20,37 +22,51 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KHo-uG-FBY">
-                    <rect key="frame" x="40" y="268.5" width="295" height="150"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-yu-K3e">
+                    <rect key="frame" x="152" y="182.5" width="71.5" height="36"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KHo-uG-FBY">
+                    <rect key="frame" x="40" y="258.5" width="295" height="170"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A43-6A-kj2">
-                            <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="dHz-GJ-d6S"/>
-                            </connections>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MsW-At-A3M">
-                            <rect key="frame" x="0.0" y="40" width="295" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="POR-Gn-w41"/>
-                            </connections>
-                        </textField>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s0y-l4-D1E">
+                            <rect key="frame" x="0.0" y="0.0" width="295" height="70"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A43-6A-kj2">
+                                    <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="dHz-GJ-d6S"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MsW-At-A3M">
+                                    <rect key="frame" x="0.0" y="40" width="295" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="POR-Gn-w41"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                        </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUd-vv-wnW">
-                            <rect key="frame" x="0.0" y="80" width="295" height="30"/>
-                            <state key="normal" title="Submit"/>
+                            <rect key="frame" x="0.0" y="90" width="295" height="30"/>
+                            <color key="backgroundColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <connections>
                                 <action selector="submit:" destination="-1" eventType="touchUpInside" id="Zpo-Yi-JRN"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcl-Kk-Hri">
-                            <rect key="frame" x="0.0" y="120" width="295" height="30"/>
-                            <state key="normal" title="Signup"/>
+                            <rect key="frame" x="0.0" y="140" width="295" height="30"/>
+                            <state key="normal" title="I don't have an account"/>
                             <connections>
                                 <action selector="showSignup:" destination="-1" eventType="touchUpInside" id="qnN-dq-HIm"/>
                             </connections>
@@ -61,8 +77,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="CNH-yu-K3e" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Gqv-jE-Trz"/>
                 <constraint firstItem="KHo-uG-FBY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Gs1-6Y-jto"/>
                 <constraint firstItem="KHo-uG-FBY" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="WGY-7s-VJq"/>
+                <constraint firstItem="KHo-uG-FBY" firstAttribute="top" secondItem="CNH-yu-K3e" secondAttribute="bottom" constant="40" id="Xub-Hb-pKZ"/>
                 <constraint firstItem="KHo-uG-FBY" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="sGH-gs-ufc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KHo-uG-FBY" secondAttribute="trailing" constant="40" id="zcY-EW-k3f"/>
             </constraints>

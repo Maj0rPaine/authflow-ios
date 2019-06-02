@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Firebase
 
 /// Handle routes for auth session
 protocol AuthCoordinatorDelegate: class {
-    /// Successful auth request
-    func authSuccess()
+    /// Successful auth request for user
+    func authSuccess(user: User)
     /// Failed auth request
     func authFailure()
     /// Expire auth session
@@ -54,13 +55,27 @@ extension AuthCoordinator {
 }
 
 extension AuthCoordinator: LoginViewControllerDelegate {
-    func loginSuccess() {
-        delegate?.authSuccess()
+    func login(with email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [unowned self] authResult, error in
+            guard let user = authResult?.user, error == nil else {
+                self.presenter.showError(error?.localizedDescription ?? "Error")
+                return
+            }
+            
+            self.delegate?.authSuccess(user: user)
+        }
     }
 }
 
 extension AuthCoordinator: SignupViewControllerDelegate {
-    func signupSuccess() {
-        delegate?.authSuccess()
+    func signup(with email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { [unowned self] authResult, error in
+            guard let user = authResult?.user, error == nil else {
+                self.presenter.showError(error?.localizedDescription ?? "Error")
+                return
+            }
+            
+            self.delegate?.authSuccess(user: user)
+        }
     }
 }

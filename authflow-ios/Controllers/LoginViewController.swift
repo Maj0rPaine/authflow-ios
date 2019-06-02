@@ -8,21 +8,20 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: class {
-    func loginSuccess()
+    func login(with email: String, password: String)
     func showSignup()
 }
 
 class LoginViewController: BaseViewController {
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     weak var delegate: LoginViewControllerDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
     @IBAction func submit(_ sender: Any) {
-        delegate?.loginSuccess()
+        guard let email = emailField.text,
+            let password = passwordField.text else { return }
+        delegate?.login(with: email, password: password)
     }
     
     @IBAction func showSignup(_ sender: Any) {

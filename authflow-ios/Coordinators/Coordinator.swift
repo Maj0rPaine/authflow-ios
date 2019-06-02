@@ -5,7 +5,7 @@
 //  Created by Chris Paine on 6/1/19.
 //
 
-import Foundation
+import UIKit
 
 protocol Coordinator {
     /// All coordinators have a start method for adding controllers to stack

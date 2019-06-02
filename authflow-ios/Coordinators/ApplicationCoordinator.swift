@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 /// Root coordinator for application
 class ApplicationCoordinator: Coordinator {
@@ -14,6 +15,8 @@ class ApplicationCoordinator: Coordinator {
     var authCoordinator: AuthCoordinator?
 
     var profileCoordinator: ProfileCoordinator?
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     private lazy var rootViewController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -25,18 +28,25 @@ class ApplicationCoordinator: Coordinator {
         self.window = window
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
+        
+        handle = Auth.auth().addStateDidChangeListener { [unowned self] (auth, user) in
+            guard let user = user else {
+                self.authFailure()
+                return
+            }
+            
+            self.authSuccess(user: user)
+        }
     }
     
     func start() {
-        let splashViewController = SplashViewController()
-        splashViewController.delegate = self
-        rootViewController.viewControllers = [splashViewController]
+        rootViewController.viewControllers = [SplashViewController()]
     }
 }
 
 extension ApplicationCoordinator: AuthCoordinatorDelegate {
-    func authSuccess() {
-        profileCoordinator = ProfileCoordinator(presenter: rootViewController)
+    func authSuccess(user: User) {
+        profileCoordinator = ProfileCoordinator(presenter: rootViewController, user: user)
         profileCoordinator?.delegate = self
         profileCoordinator?.start()
     }
@@ -48,6 +58,11 @@ extension ApplicationCoordinator: AuthCoordinatorDelegate {
     }
     
     func endSession() {
-        authFailure()
+        do {
+            try Auth.auth().signOut()
+            authFailure()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
 }
