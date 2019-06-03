@@ -8,7 +8,9 @@
 import UIKit
 
 protocol SignupViewControllerDelegate: class {
+    /// Create FirebaseAuth user
     func signup(with email: String, password: String)
+    /// Push login controller on stack
     func showLogin()
 }
 

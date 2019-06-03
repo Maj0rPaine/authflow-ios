@@ -39,18 +39,8 @@ class AuthCoordinator: Coordinator {
     }
     
     func start() {
-        showLogin()
-    }
-}
-
-extension AuthCoordinator {
-    func showLogin() {
         presenter.isNavigationBarHidden = true
         presenter.viewControllers = [loginViewController]
-    }
-    
-    func showSignup() {
-        presenter.viewControllers = [signupViewController]
     }
 }
 
@@ -65,6 +55,10 @@ extension AuthCoordinator: LoginViewControllerDelegate {
             self.delegate?.authSuccess(user: user)
         }
     }
+    
+    func showSignup() {
+        presenter.pushViewController(signupViewController, animated: true)
+    }
 }
 
 extension AuthCoordinator: SignupViewControllerDelegate {
@@ -77,5 +71,9 @@ extension AuthCoordinator: SignupViewControllerDelegate {
             
             self.delegate?.authSuccess(user: user)
         }
+    }
+    
+    func showLogin() {
+        presenter.popViewController(animated: true)
     }
 }
