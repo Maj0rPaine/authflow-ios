@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="authflow_ios" customModuleProvider="target">
             <connections>
-                <outlet property="emailLabel" destination="qgj-hT-QVb" id="WxA-yx-vzo"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZeY-3E-h7d"/>
             </connections>
         </placeholder>
@@ -20,32 +19,7 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="p1u-io-0Ju">
-                    <rect key="frame" x="40" y="318.5" width="295" height="50"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfS-6k-2hs">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgj-hT-QVb">
-                            <rect key="frame" x="55" y="0.0" width="240" height="50"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="p1u-io-0Ju" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="D2o-pr-ku0"/>
-                <constraint firstItem="p1u-io-0Ju" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Xoa-Kk-FMc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="p1u-io-0Ju" secondAttribute="trailing" constant="40" id="jzd-6i-yRK"/>
-                <constraint firstItem="p1u-io-0Ju" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="kkG-Nv-Ga4"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>

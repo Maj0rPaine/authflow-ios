@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-/// Handle routes for auth session
+/// Handle auth requests and session
 protocol AuthCoordinatorDelegate: class {
     /// Successful auth request for user
     func authSuccess(user: User)
