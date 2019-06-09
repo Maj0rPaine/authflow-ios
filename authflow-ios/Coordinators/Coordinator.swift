@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator {    
     /// All coordinators have a start method for adding controllers to stack
     func start()
 }

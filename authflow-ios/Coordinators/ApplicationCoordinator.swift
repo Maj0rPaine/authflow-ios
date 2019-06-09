@@ -6,37 +6,33 @@
 //
 
 import UIKit
-import Firebase
 
 /// Root coordinator for application
 class ApplicationCoordinator: Coordinator {
     let window: UIWindow
     
+    let authService: AuthService
+    
     var authCoordinator: AuthCoordinator?
 
     var profileCoordinator: ProfileCoordinator?
     
-    var handle: AuthStateDidChangeListenerHandle?
-    
     private lazy var rootViewController: UINavigationController = {
         let navigationController = UINavigationController()
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.isNavigationBarHidden = true
         return navigationController
     }()
     
-    init(window: UIWindow) {
+    init(window: UIWindow, authService: AuthService) {
         self.window = window
+        self.authService = authService
+
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
         
-        handle = Auth.auth().addStateDidChangeListener { [unowned self] (auth, user) in
-            guard let user = user else {
-                self.authFailure()
-                return
-            }
-            
-            self.authSuccess(user: user)
-        }
+        authService.delegate = self
+        authService.getUser()
     }
     
     func start() {
@@ -44,22 +40,22 @@ class ApplicationCoordinator: Coordinator {
     }
 }
 
-extension ApplicationCoordinator: AuthCoordinatorDelegate {
-    func authSuccess(user: User) {
-        profileCoordinator = ProfileCoordinator(presenter: rootViewController, user: user)
-        profileCoordinator?.delegate = self
+extension ApplicationCoordinator: AuthServiceDelegate {
+    func authSuccess() {
+        profileCoordinator = ProfileCoordinator(presenter: rootViewController, authService: authService)
+        rootViewController.isNavigationBarHidden = false
         profileCoordinator?.start()
     }
     
     func authFailure() {
-        authCoordinator = AuthCoordinator(presenter: rootViewController)
-        authCoordinator?.delegate = self
+        authCoordinator = AuthCoordinator(presenter: rootViewController, authService: authService)
+        rootViewController.isNavigationBarHidden = true
         authCoordinator?.start()
     }
     
     func endSession() {
         do {
-            try Auth.auth().signOut()
+            try authService.signout()
             authFailure()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)

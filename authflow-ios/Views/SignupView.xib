@@ -45,7 +45,9 @@
                                     <rect key="frame" x="0.0" y="40" width="295" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="new-password"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="new-password">
+                                        <passwordRules key="passwordRules" passwordRulesDescriptor="required:lower;required:upper;required:digit;required:special;minlength:8;maxlength:16;"/>
+                                    </textInputTraits>
                                 </textField>
                                 <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLE-LJ-XVt">
                                     <rect key="frame" x="0.0" y="70" width="295" height="0.0"/>

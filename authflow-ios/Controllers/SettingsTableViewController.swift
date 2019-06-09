@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 protocol SettingsTableViewControllerDelegate: class {
     func showLogoutConfirm()
@@ -16,9 +15,9 @@ protocol SettingsTableViewControllerDelegate: class {
 class SettingsTableViewController: UITableViewController {
     weak var delegate: SettingsTableViewControllerDelegate?
     
-    private var user: User?
+    private var user: AuthUser?
 
-    convenience init(user: User?) {
+    convenience init(user: AuthUser?) {
         self.init(style: .grouped)
         self.user = user
         

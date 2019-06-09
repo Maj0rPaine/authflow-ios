@@ -6,21 +6,10 @@
 //
 
 import UIKit
-import Firebase
-
-/// Handle auth requests and session
-protocol AuthCoordinatorDelegate: class {
-    /// Successful auth request for user
-    func authSuccess(user: User)
-    /// Failed auth request
-    func authFailure()
-    /// Expire auth session
-    func endSession()
-}
 
 /// Coordinates login/sign up process
 class AuthCoordinator: Coordinator {
-    weak var delegate: AuthCoordinatorDelegate?
+    let authService: AuthService
     
     let loginViewController: LoginViewController
     
@@ -32,27 +21,25 @@ class AuthCoordinator: Coordinator {
     
     private let presenter: UINavigationController
     
-    init(presenter: UINavigationController) {
+    init(presenter: UINavigationController, authService: AuthService) {
         self.presenter = presenter
+        self.authService = authService
+        
         loginViewController = LoginViewController()
         loginViewController.delegate = self
     }
     
     func start() {
-        presenter.isNavigationBarHidden = true
         presenter.viewControllers = [loginViewController]
     }
 }
 
 extension AuthCoordinator: LoginViewControllerDelegate {
     func login(with email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [unowned self] authResult, error in
-            guard let user = authResult?.user, error == nil else {
-                self.presenter.showError(error?.localizedDescription ?? "Error")
-                return
+        authService.login(with: email, password: password) { [unowned self] error in
+            if let error = error {
+                self.presenter.showError(error.localizedDescription)
             }
-            
-            self.delegate?.authSuccess(user: user)
         }
     }
     
@@ -63,13 +50,10 @@ extension AuthCoordinator: LoginViewControllerDelegate {
 
 extension AuthCoordinator: SignupViewControllerDelegate {
     func signup(with email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { [unowned self] authResult, error in
-            guard let user = authResult?.user, error == nil else {
-                self.presenter.showError(error?.localizedDescription ?? "Error")
-                return
+        authService.signup(with: email, password: password) { [unowned self] error in
+            if let error = error {
+                self.presenter.showError(error.localizedDescription)
             }
-            
-            self.delegate?.authSuccess(user: user)
         }
     }
     
