@@ -14,11 +14,30 @@ protocol LoginViewControllerDelegate: class {
     func showSignup()
 }
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, ScrollViewKeyboardObservable {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
     
     weak var delegate: LoginViewControllerDelegate?
+    
+    var keyboardObservableScrollView: UIScrollView {
+        return scrollView
+    }
+    
+    var keyboardObservableView: UIView {
+        return signupButton
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addKeyboardObserver(to: .default)
+    }
+    
+    deinit {
+        removeKeyboardObserver(from: .default)
+    }
     
     @IBAction func submit(_ sender: Any) {
         guard let email = emailField.text,
